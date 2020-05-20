@@ -1,0 +1,41 @@
+name: Build and deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Build frontend files
+        run: |
+          npm ci
+          npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: assets/dist/
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/master' # Runs on master only
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: assets/dist/
+      - name: Deploy to production
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        with:
+          flags: -azh --stats
+          options: --exclude-from .rsyncignore
+          ssh_options: -p ${{ secrets.PORT }}
+          src: '.'
+          dest: ${{ secrets.DESTINATION }}

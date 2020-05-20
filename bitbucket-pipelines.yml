@@ -26,11 +26,11 @@ pipelines:
           name: Deploy to production
           deployment: production # This selects the production variables
           script:
-            - rsync -az --stats -e "ssh -p $PORT" --exclude-from '.rsyncignore' . $USER@$HOST:$FOLDER
+            - rsync -azh --stats -e "ssh -p $PORT" --exclude-from '.rsyncignore' . $DESTINATION
     staging:
       - step: *build
       - step:
           name: Deploy to staging
           deployment: staging # This selects the staging variables
           script:
-            - rsync -az --stats -e "ssh -p $PORT" --exclude-from '.rsyncignore' . $USER@$HOST:$FOLDER
+            - rsync -azh --stats -e "ssh -p $PORT" --exclude-from '.rsyncignore' . $DESTINATION
