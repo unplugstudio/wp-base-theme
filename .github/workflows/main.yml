@@ -3,6 +3,18 @@ name: Build and deploy
 on: [push]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Lint frontend files
+        run: |
+          npm ci
+          npm run lint
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +32,7 @@ jobs:
           path: assets/dist/
 
   deploy:
-    needs: build
+    needs: [lint, build]
     if: github.ref == 'refs/heads/master' # Runs on master only
     runs-on: ubuntu-latest
     steps:

@@ -7,6 +7,14 @@ image: instrumentisto/rsync-ssh
 
 definitions:
   steps:
+    - step: &lint
+        name: Lint frontend files
+        image: node:10
+        caches:
+          - node
+        script:
+          - npm ci
+          - npm run lint
     - step: &build
         name: Build frontend files
         image: node:10
@@ -21,14 +29,18 @@ definitions:
 pipelines:
   branches:
     master:
-      - step: *build
+      - parallel:
+        - step: *lint
+        - step: *build
       - step:
           name: Deploy to production
           deployment: production # This selects the production variables
           script:
             - rsync -azh --stats -e "ssh -p $PORT" --exclude-from '.rsyncignore' . $DESTINATION
     staging:
-      - step: *build
+      - parallel:
+        - step: *lint
+        - step: *build
       - step:
           name: Deploy to staging
           deployment: staging # This selects the staging variables
