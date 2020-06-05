@@ -1,23 +1,32 @@
+<?php
+  global $wp_query;
+  $json_vars = wp_json_encode($wp_query->query_vars);
+  $blog_page = get_post(get_option('page_for_posts'));
+?>
+
 <?php get_header(); ?>
 
-<?php get_template_part('template-parts/masthead') ?>
-
-<div class="section-wrapper">
+<main id="main" class="section-wrapper">
   <div class="container">
+    <?php if (is_home()): ?>
+      <h1 class="_text-style-1"><?= $blog_page->post_title ?: 'Blog' ?></h1>
+      <?= $blog_page->post_content ?>
+    <?php else: ?>
+      <h1 class="_text-style-1"><?= wp_title('', false); ?></h1>
+    <?php endif ?>
 
-    <main id="main" role="main">
-      <?php if (have_posts()) :
-        while (have_posts()) : the_post();
-          the_content();
-        endwhile;
-      endif; ?>
-    </main>
+    <?php partial('template-parts/blog-nav') ?>
 
-    <?php get_sidebar() ?>
+    <div data-ajax-query-container='<?= esc_attr($json_vars) ?>'>
+      <?php partial('template-parts/post-ajax', ['query' => $wp_query]) ?>
+    </div>
 
+    <?php if (paginate_links()): ?>
+      <p class="_text-center">
+        <button data-ajax-query-more class="button">Load More</button>
+      </p>
+    <?php endif ?>
   </div>
-</div>
-
-<?php the_posts_pagination(); ?>
+</main>
 
 <?php get_footer(); ?>
