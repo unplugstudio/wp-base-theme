@@ -97,38 +97,24 @@ $directions: (
   }
 }
 
-/* Responsive floats */
-
-._float-left,
-.float-left {
-  float: left !important;
-}
-
-._float-right,
-.float-right {
-  float: right !important;
-}
-
-._float-none,
-.float-none {
-  float: none !important;
-}
-
-@each $breakpoint in map-keys($mq-breakpoints) {
-  @include mq($from: $breakpoint) {
-    ._float-#{$breakpoint}-left,
-    .float-#{$breakpoint}-left {
-      float: left !important;
+// Responsive floats
+@each $size in map-keys($mq-breakpoints) {
+  @include mq($from: $size) {
+    @each $value in (none, left, right) {
+      ._float-#{$value}-#{$size} {
+        float: $value !important;
+      }
     }
+  }
+}
 
-    ._float-#{$breakpoint}-right,
-    .float-#{$breakpoint}-right {
-      float: right !important;
-    }
-
-    ._float-#{$breakpoint}-none,
-    .float-#{$breakpoint}-none {
-      float: none !important;
+// Responsive display helpers
+@each $size in map-keys($mq-breakpoints) {
+  @include mq($from: $size) {
+    @each $value in (none, block, flex) {
+      ._display-#{$value}-#{$size} {
+        display: $value !important;
+      }
     }
   }
 }
