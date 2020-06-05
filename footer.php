@@ -3,7 +3,7 @@
     <!-- Social links -->
     <ul class="list-inline">
       <?php if (function_exists('get_field')): ?>
-        <?php foreach(get_field('social_links', 'options') as $item): ?>
+        <?php foreach (get_field('social_links', 'options') as $item): ?>
           <?php $link = $item['link'] ?>
           <li><a href="<?= $link['url'] ?>" target="<?= $link['target'] ?: '_self' ?>">
             <span class="_visually-hidden"><?= $link['title'] ?></span>

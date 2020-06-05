@@ -1,9 +1,9 @@
 <h2>Latest on the blog</h2>
 <ul>
-  <?php $recent_posts = wp_get_recent_posts(array(
+  <?php $recent_posts = wp_get_recent_posts([
     'numberposts' => 5,
     'post_status' => 'publish'
-  )); ?>
+  ]); ?>
   <?php foreach ($recent_posts as $recent) : $id = $recent['ID']; ?>
     <li>
       <?= get_the_date('m.d.y', $id) ?><br>

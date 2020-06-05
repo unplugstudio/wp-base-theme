@@ -4,10 +4,11 @@
 
 Your WordPress site must have [Advanced Custom Field Pro](https://www.advancedcustomfields.com/pro/) installed before using this theme. Ask the lead developer for the activation key.
 
-## Installing frontend requirements
+## Installing project requirements
 
 ```bash
 npm install
+composer install
 ```
 
 ## Development mode
@@ -34,11 +35,15 @@ The resulting files are generated with unique names by Webpack to get automatic 
 
 ## Code style
 
-Linting is configured in `assets/.eslintrc` (JS) and `assets/.stylelintrc` (CSS). Check the files for the configuration details.
+Linting is configured in `assets/.eslintrc` (JS), `assets/.stylelintrc` (CSS), and `.php_cs.dist` (PHP). Check the files for the configuration details.
 
 Linters can be run with:
 
 ```bash
+# Frontend files
 npm run lint:js
 npm run lint:css
+
+# PHP files
+composer run-script lint
 ```

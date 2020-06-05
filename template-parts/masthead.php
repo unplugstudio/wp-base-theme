@@ -11,14 +11,22 @@
     $image = get_field('masthead_image', 'category_' . $object->term_id);
     $title = get_field('masthead_title', 'category_' . $object->term_id);
     $subtext = get_field('masthead_subtext', 'category_' . $object->term_id);
-    if (!$title) $title = wp_title('', false);
+    if (!$title) {
+      $title = wp_title('', false);
+    }
   }
-  if (is_search() || is_tax()) $title = 'Search';
+  if (is_search() || is_tax()) {
+    $title = 'Search';
+  }
 
   // if (tribe_is_event_query()) $title = strip_tags(tribe_get_events_title());
 
-  if (!$image) $image = get_field('fallback_masthead_image', 'option');
-  if (!$title) $title = get_the_title($object->ID);
+  if (!$image) {
+    $image = get_field('fallback_masthead_image', 'option');
+  }
+  if (!$title) {
+    $title = get_the_title($object->ID);
+  }
 ?>
 
 <section class="<?= $class ?>" style="background-image: url(<?= esc_url($image); ?>)">

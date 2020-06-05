@@ -1,0 +1,18 @@
+{
+    "name": "unplugstudio/wp-base-theme",
+    "type": "project",
+    "scripts": {
+        "lint": "php-cs-fixer fix -v --dry-run --using-cache=no"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Unplug Studio",
+            "email": "hello@unplug.studio"
+        }
+    ],
+    "require": {}
+}

@@ -9,21 +9,24 @@
  *
  * @param string $path is WordPress' required location for a static asset
  */
-function get_from_manifest($path) {
+function get_from_manifest($path)
+{
   $base_uri =  get_template_directory_uri() . '/assets/dist/';
   $file = get_template_directory() . '/assets/dist/manifest.json';
-  $manifest = file_exists($file) ? json_decode(file_get_contents($file), true ) : [];
+  $manifest = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
-  if (array_key_exists($path, $manifest)) return $base_uri . $manifest[$path];
+  if (array_key_exists($path, $manifest)) {
+    return $base_uri . $manifest[$path];
+  }
   return $base_uri . $path;
 }
 
 add_action('wp_enqueue_scripts', function () {
   // Styles
-  wp_register_style( 'theme-css', get_from_manifest('theme.css'), [], null );
-  wp_enqueue_style( 'theme-css' );
+  wp_register_style('theme-css', get_from_manifest('theme.css'), [], null);
+  wp_enqueue_style('theme-css');
 
   // Scripts
-  wp_register_script( 'theme-js', get_from_manifest('theme.js'), [], null, true );
-  wp_enqueue_script( 'theme-js' );
+  wp_register_script('theme-js', get_from_manifest('theme.js'), [], null, true);
+  wp_enqueue_script('theme-js');
 });

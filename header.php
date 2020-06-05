@@ -16,9 +16,9 @@
     <div class="container">
       <nav>
         <ul class="site-nav">
-          <?php foreach(menu_tree("Main Menu") as $id => $item) {
-            partial('template-parts/site-nav-item', ["item" => $item]);
-          } ?>
+          <?php foreach (menu_tree('Main Menu') as $id => $item) {
+  partial('template-parts/site-nav-item', ['item' => $item]);
+} ?>
         </ul>
       </nav>
     </div>
