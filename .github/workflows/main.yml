@@ -10,10 +10,16 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
+      - uses: MilesChou/composer-action/7.3/install@master
+        with:
+          args: install
       - name: Lint frontend files
         run: |
           npm ci
           npm run lint
+      - name: Lint PHP files
+        run: |
+          composer run-script lint
 
   build:
     runs-on: ubuntu-latest
