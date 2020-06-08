@@ -33,8 +33,6 @@ get_template_part('template-parts/masthead');
       <?php endwhile; endif; ?>
     </main>
 
-    <?php get_sidebar() ?>
-
   </div>
 </div>
 
