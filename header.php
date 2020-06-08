@@ -18,6 +18,9 @@ use theme\Utils;
 
   <body id="top" <?php body_class(); ?>>
 
+    <!-- Skip to main -->
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+
     <!-- Main navigation -->
     <div class="container">
       <nav>
