@@ -1,3 +1,8 @@
+<?php
+use theme\Utils;
+
+?>
+
 <li>
   <?php /* Item without children */ ?>
   <?php if (!$item->children): ?>
@@ -10,14 +15,13 @@
 
   <?php /* Item with children */ ?>
   <?php else: ?>
-    <span>
+    <a href="<?= $item->url ?>">
       <?= $item->title ?>
-    </span>
+    </a>
     <ul id="submenu-<?= $item->ID ?>">
-      <?php foreach ($item->children as $id => $subitem) {
-  // Recursively render children
-  partial('template-parts/site-nav-item', ['item' => $subitem]);
-} ?>
+      <?php foreach ($item->children as $id => $subitem) : ?>
+        <?= Utils::partial('template-parts/site-nav-item', ['item' => $subitem]) ?>
+      <?php endforeach ?>
     </ul>
   <?php endif; ?>
 </li>

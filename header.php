@@ -1,4 +1,10 @@
-<!doctype html>
+<?php
+
+use theme\Utils;
+
+?>
+
+<!DOCTYPE html>
 
 <html <?php language_attributes(); ?> class="no-js">
 
@@ -16,9 +22,9 @@
     <div class="container">
       <nav>
         <ul class="site-nav">
-          <?php foreach (menu_tree('Main Menu') as $id => $item) {
-  partial('template-parts/site-nav-item', ['item' => $item]);
-} ?>
+          <?php foreach (Utils::menu_tree('Main Menu') as $id => $item) : ?>
+            <?= Utils::partial('template-parts/site-nav-item', ['item' => $item]) ?>
+          <?php endforeach ?>
         </ul>
       </nav>
     </div>

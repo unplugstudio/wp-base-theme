@@ -1,5 +1,5 @@
 <?php
-
+use theme\Utils;
 $AJAX_ACTION_NAME = 'ajax_query'; // Used to identify the action in the AJAX endpoint
 
 // Provide a global JS object for the frontend to read
@@ -23,7 +23,7 @@ function ajax_query_handler()
   $query = new WP_Query($params);
 
   $post_type = $params['post_type'] ?: 'post';
-  partial("template-parts/{$post_type}-ajax", ['query' => $query]);
+  Utils::partial("template-parts/{$post_type}-ajax", ['query' => $query]);
   wp_die();
 }
 

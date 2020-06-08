@@ -1,3 +1,9 @@
+<?php
+
+use theme\Utils;
+
+?>
+
 <footer class="site-footer">
   <div class="container">
     <!-- Social links -->
@@ -7,7 +13,7 @@
           <?php $link = $item['link'] ?>
           <li><a href="<?= $link['url'] ?>" target="<?= $link['target'] ?: '_self' ?>">
             <span class="_visually-hidden"><?= $link['title'] ?></span>
-            <?= svg(get_service_from_url($link['url'])) ?>
+            <?= Utils::svg(Utils::get_service_from_url($link['url'])) ?>
           </a></li>
         <?php endforeach ?>
       <?php endif ?>

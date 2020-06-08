@@ -1,6 +1,10 @@
-<?php get_header(); ?>
+<?php
+use theme\Utils;
 
-<?php get_template_part('template-parts/masthead') ?>
+get_header();
+get_template_part('template-parts/masthead');
+
+?>
 
 <div class="section-wrapper">
   <div class="container">
@@ -15,6 +19,15 @@
           </header>
 
           <?php the_content(); ?>
+
+          <ul class="list-inline">
+            <?php foreach (Utils::social_share_urls() as $platform => $url): ?>
+              <li><a href="<?= $url ?>" target="_blank">
+                <?= Utils::svg($platform) ?>
+                <span class="_visually-hidden">Share to <?= $platform ?></span>
+              </a></li>
+            <?php endforeach ?>
+          </ul>
 
         </article>
       <?php endwhile; endif; ?>

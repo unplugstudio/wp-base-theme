@@ -1,6 +1,9 @@
-<?php get_header(); ?>
+<?php
+use theme\Utils;
 
-<?php get_template_part('template-parts/masthead'); ?>
+get_header();
+get_template_part('template-parts/masthead');
+?>
 
 <main role="main" id="main">
   <div class="section-wrapper">
@@ -115,10 +118,10 @@
           </ul>
           <ul class="list-inline">
             <li><a class="button -style-1">
-              <?= svg('facebook') ?> Icon
+              <?= Utils::svg('facebook') ?> Icon
             </a></li>
             <li><a class="button -style-2">
-              <?= svg('twitter') ?> Icon
+              <?= Utils::svg('twitter') ?> Icon
             </a></li>
             <li><button class="button -style-1 -alt" disabled>Disabled</button></li>
             <li><button class="button" disabled>Disabled</button></li>
