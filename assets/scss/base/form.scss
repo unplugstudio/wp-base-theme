@@ -75,6 +75,7 @@ textarea {
   &:focus {
     border-color: get-palette(highlight, 1);
     box-shadow: 0 0 0 get-size(border-width) get-palette(highlight, 1);
+    outline: none !important;
   }
 
   .has-error & {

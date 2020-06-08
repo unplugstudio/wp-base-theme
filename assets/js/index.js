@@ -1,3 +1,4 @@
+import 'focus-visible'
 import '../scss/index.scss'
 import initAjaxQuery from './ajax-query'
 

@@ -39,11 +39,19 @@ main {
   display: block;
 }
 
-/*
-  This will hide the focus indicator if the element receives focus via the mouse,
-  but it will still show up on keyboard focus. (requires focus-visible polyfill)
-  https://github.com/WICG/focus-visible
-*/
-.js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
+.js-focus-visible {
+  /*
+    This will hide the focus indicator if the element receives focus via the mouse,
+    but it will still show up on keyboard focus. (requires focus-visible polyfill)
+    https://github.com/WICG/focus-visible
+  */
+  :focus:not(.focus-visible) {
+    outline: none;
+  }
+
+  // Define a strong focus indicator for keyboard focus.
+  //stylelint-disable-next-line rscss/class-format
+  .focus-visible {
+    outline: 5px solid #f00;
+  }
 }
