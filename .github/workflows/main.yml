@@ -54,6 +54,6 @@ jobs:
         with:
           flags: -azh --stats
           options: --exclude-from .rsyncignore
-          ssh_options: -p ${{ secrets.PORT }}
+          # ssh_options: -p ${{ secrets.PORT }}
           src: '.'
           dest: ${{ secrets.DESTINATION }}
