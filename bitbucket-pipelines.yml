@@ -1,46 +1,47 @@
 # Set the variables as Bitbucket env vars
 # Go to the repo settings > Pipelines > Deployments > Variables
-# Also make sure you have configured your repository SSH keys:
-# https://confluence.atlassian.com/bitbucket/use-ssh-keys-in-bitbucket-pipelines-847452940.html
 
 image: instrumentisto/rsync-ssh
 
 definitions:
+  caches:
+    composer-tmp: /tmp/cache
   steps:
-    - step: &lint
-        name: Lint frontend files
-        image: node:10
-        caches:
-          - node
-        script:
-          - npm ci
-          - npm run lint
-    - step: &build
+    - step: &build-frontend
         name: Build frontend files
         image: node:10
         caches:
           - node
         script:
-          - npm ci
+          - npm install # Use install instead of ci for better cache
           - npm run build
         artifacts:
           - assets/dist/**
+    - step: &build-php
+        name: Build PHP files
+        image: composer:2
+        caches:
+          - composer-tmp
+        script:
+          - composer install
+          - composer run-script lint
+          - composer update --no-dev --optimize-autoloader
+        artifacts:
+          - vendor/**
 
 pipelines:
   branches:
     master:
-      - parallel:
-        - step: *lint
-        - step: *build
+      - step: *build-frontend
+      - step: *build-php
       - step:
           name: Deploy to production
           deployment: production # This selects the production variables
           script:
             - rsync -azh --stats -e "ssh -p $PORT" --exclude-from '.rsyncignore' . $DESTINATION
     staging:
-      - parallel:
-        - step: *lint
-        - step: *build
+      - step: *build-frontend
+      - step: *build-php
       - step:
           name: Deploy to staging
           deployment: staging # This selects the staging variables
