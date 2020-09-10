@@ -2,7 +2,8 @@
     "name": "unplugstudio/wp-base-theme",
     "type": "project",
     "scripts": {
-        "lint": "php-cs-fixer fix -v --dry-run --using-cache=no"
+        "lint": "php-cs-fixer fix -v --dry-run --using-cache=no",
+        "format": "php-cs-fixer fix"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16"

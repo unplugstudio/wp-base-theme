@@ -31,6 +31,9 @@ return PhpCsFixer\Config::create()
     // Customizations
     'array_indentation' => true,
     'array_syntax' => ['syntax' => 'short'],
+    'binary_operator_spaces' => true,
     'single_quote' => true,
+    'ternary_operator_spaces' => true,
+    'unary_operator_spaces' => true,
   ])
 ;

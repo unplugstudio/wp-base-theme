@@ -6,7 +6,7 @@ class Utils
 {
 
   // Render an inline SVG
-  public static function svg($icon, $class='inline-svg')
+  public static function svg($icon, $class = 'inline-svg')
   {
     if (strpos($icon, 'http') !== false) {
       $path = $icon;
@@ -42,7 +42,7 @@ class Utils
 
   // Generate an array of social links for a given url
   // https://github.com/bradvin/social-share-urls/blob/master/code/php/SocialMedia.php#L121
-  public static function social_share_urls($url=false, $content=false)
+  public static function social_share_urls($url = false, $content = false)
   {
     $url = urlencode($url ?: get_permalink(get_the_ID()));
     $content = urlencode(trim($content ?: wp_title('', false)));
@@ -60,7 +60,7 @@ class Utils
   $path: file path to the file to render (relative to the theme)
   $args: array of variables that will be made available when rendering the file
   */
-  public static function partial($path, $args=[])
+  public static function partial($path, $args = [])
   {
     $path = rtrim($path, '.php');
     $path = get_stylesheet_directory() . "/$path.php";
@@ -77,7 +77,7 @@ class Utils
   }
 
   // Build a navigation tree from a parent page
-  public static function build_tree($items, $parent=0, $branch=[])
+  public static function build_tree($items, $parent = 0, $branch = [])
   {
     foreach ($items as $item) {
       if ($item->menu_item_parent == $parent) {
