@@ -63,7 +63,7 @@ class Utils
   public static function partial($path, $args=[])
   {
     $path = rtrim($path, '.php');
-    $path = get_template_directory() . "/$path.php";
+    $path = get_stylesheet_directory() . "/$path.php";
     if (!file_exists($path)) {
       return; // File not found, bail
     }
