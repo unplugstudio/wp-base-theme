@@ -1,5 +1,5 @@
 <?php
-use theme\Utils;
+use utils\Utils;
 
 global $wp_query;
 $json_vars = wp_json_encode($wp_query->query_vars);

@@ -1,5 +1,5 @@
 <?php
-use theme\Utils;
+use utils\Utils;
 
 get_header();
 get_template_part('template-parts/masthead');

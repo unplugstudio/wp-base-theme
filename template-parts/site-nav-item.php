@@ -1,5 +1,5 @@
 <?php
-use theme\Utils;
+use utils\Utils;
 
 ?>
 

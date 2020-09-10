@@ -1,6 +1,6 @@
 <?php
 
-use theme\Utils;
+use utils\Utils;
 
 $AJAX_ACTION_NAME = 'ajax_query'; // Used to identify the action in the AJAX endpoint
 
