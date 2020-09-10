@@ -73,7 +73,7 @@ class Utils
     }
     ob_start();
     require($path);
-    echo ob_get_clean();
+    return ob_get_clean();
   }
 
   // Build a navigation tree from a parent page

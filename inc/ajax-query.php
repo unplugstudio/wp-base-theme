@@ -25,7 +25,7 @@ function ajax_query_handler()
   $query = new WP_Query($params);
 
   $post_type = $params['post_type'] ?: 'post';
-  Utils::partial("template-parts/{$post_type}-ajax", ['query' => $query]);
+  echo Utils::partial("template-parts/{$post_type}-ajax", ['query' => $query]);
   wp_die();
 }
 
