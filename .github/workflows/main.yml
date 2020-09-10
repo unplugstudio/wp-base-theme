@@ -3,42 +3,41 @@ name: Build and deploy
 on: [push]
 
 jobs:
-  lint:
+  build-frontend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
-      - uses: MilesChou/composer-action/7.3/install@master
-        with:
-          args: install
-      - name: Lint frontend files
+      - name: Build frontend
         run: |
           npm ci
           npm run lint
-      - name: Lint PHP files
-        run: |
-          composer run-script lint
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-      - name: Build frontend files
-        run: |
-          npm ci
           npm run build
       - uses: actions/upload-artifact@v2
         with:
           name: dist
           path: assets/dist/
 
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: MilesChou/composer-action/7.4/install@master
+        with:
+          args: install
+      - name: Build backend
+        run: |
+          composer run-script lint
+          composer update --no-dev --optimize-autoloader
+      - uses: actions/upload-artifact@v2
+        with:
+          name: vendor
+          path: vendor/
+
   deploy:
-    needs: [lint, build]
+    needs: [build-frontend, build-backend]
     if: github.ref == 'refs/heads/master' # Runs on master only
     runs-on: ubuntu-latest
     steps:
@@ -47,6 +46,10 @@ jobs:
         with:
           name: dist
           path: assets/dist/
+      - uses: actions/download-artifact@v2
+        with:
+          name: vendor
+          path: vendor/
       - name: Deploy to production
         uses: Pendect/action-rsyncer@v1.1.0
         env:
