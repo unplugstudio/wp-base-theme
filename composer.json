@@ -60,10 +60,9 @@
   "extra": {
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": [
-        "type:wordpress-muplugin",
-        "wpackagist-plugin/limit-login-attempts-reloaded",
-        "wpackagist-plugin/sucuri-scanner",
-        "wpackagist-plugin/disable-xml-rpc"
+        "type:wordpress-muplugin", "wpackagist-plugin/limit-login-attempts-reloaded",
+        "type:wordpress-muplugin", "wpackagist-plugin/sucuri-scanner",
+        "type:wordpress-muplugin", "wpackagist-plugin/disable-xml-rpc"
       ],
       "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
