@@ -71,9 +71,6 @@
     "wordpress-install-dir": "web/wp"
   },
   "scripts": {
-    "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\""
-    ],
     "lint": "php-cs-fixer fix -v --dry-run --using-cache=no",
     "format": "php-cs-fixer fix"
   }
