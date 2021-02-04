@@ -1,6 +1,8 @@
 <?php
 use utils\Utils;
 
+$item = $args['item'];
+
 ?>
 
 <li>
@@ -20,7 +22,7 @@ use utils\Utils;
     </a>
     <ul id="submenu-<?= $item->ID ?>">
       <?php foreach ($item->children as $id => $subitem) : ?>
-        <?= Utils::partial('template-parts/site-nav-item', ['item' => $subitem]) ?>
+        <?= get_template_part('template-parts/site-nav-item', null, ['item' => $subitem]) ?>
       <?php endforeach ?>
     </ul>
   <?php endif; ?>

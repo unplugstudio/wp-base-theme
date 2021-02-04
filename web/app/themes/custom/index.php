@@ -9,14 +9,14 @@ $blog_page = get_post(get_option('page_for_posts'));
 
 <?php get_header(); ?>
 
-<?= Utils::partial('template-parts/masthead') ?>
+<?= get_template_part('template-parts/masthead') ?>
 
 <div class="section-wrapper">
   <div class="container">
     <div class="row">
       <main id="main" class="col-md-9">
         <div data-ajax-query-container='<?= esc_attr($json_vars) ?>'>
-          <?= Utils::partial('template-parts/post-ajax', ['query' => $wp_query]) ?>
+          <?= get_template_part('template-parts/post-ajax', null, ['query' => $wp_query]) ?>
         </div>
 
         <?php if (paginate_links()): ?>

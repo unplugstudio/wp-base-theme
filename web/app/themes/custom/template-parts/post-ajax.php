@@ -1,4 +1,5 @@
 <?php
+  $query = $args['query'];
   while ($query->have_posts()):
   $query->the_post();
   $terms = wp_get_object_terms(get_the_ID(), 'category', ['fields' => 'names']);

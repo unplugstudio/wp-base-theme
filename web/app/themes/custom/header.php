@@ -26,7 +26,7 @@ use utils\Utils;
       <nav>
         <ul class="site-nav">
           <?php foreach (Utils::menu_tree('Main Menu') as $id => $item) : ?>
-            <?= Utils::partial('template-parts/site-nav-item', ['item' => $item]) ?>
+            <?= get_template_part('template-parts/site-nav-item', null, ['item' => $item]) ?>
           <?php endforeach ?>
         </ul>
       </nav>

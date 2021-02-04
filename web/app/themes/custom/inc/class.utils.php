@@ -55,27 +55,6 @@ class Utils
     ];
   }
 
-  /*
-  Render a template with variables injected via an array
-  $path: file path to the file to render (relative to the theme)
-  $args: array of variables that will be made available when rendering the file
-  */
-  public static function partial($path, $args = [])
-  {
-    $path = str_replace('.php', '', $path);
-    $path = get_stylesheet_directory() . "/$path.php";
-    if (!file_exists($path)) {
-      return; // File not found, bail
-    }
-
-    foreach ($args as $key => $value) {
-      ${$key} = $value;
-    }
-    ob_start();
-    require($path);
-    return ob_get_clean();
-  }
-
   // Build a navigation tree from a parent page
   public static function build_tree($items, $parent = 0, $branch = [])
   {
