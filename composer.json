@@ -1,19 +1,80 @@
 {
-    "name": "unplugstudio/wp-base-theme",
-    "type": "project",
-    "scripts": {
-        "lint": "php-cs-fixer fix -v --dry-run --using-cache=no",
-        "format": "php-cs-fixer fix"
+  "name": "roots/bedrock",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
     },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16"
-    },
-    "license": "ISC",
-    "authors": [
-        {
-            "name": "Unplug Studio",
-            "email": "hello@unplug.studio"
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.9.1",
+        "type": "wordpress-muplugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t={%VERSION}"
+        },
+        "require": {
+          "composer/installers": "^1.4",
+          "ffraenz/private-composer-installer": "^4.0"
         }
+      }
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "composer/installers": "^1.8",
+    "vlucas/phpdotenv": "^4.1.8",
+    "oscarotero/env": "^2.1",
+    "roots/bedrock-autoloader": "^1.0",
+    "roots/wordpress": "^5.6",
+    "roots/wp-config": "1.0.0",
+    "roots/wp-password-bcrypt": "1.0.0",
+    "ext-exif": "^7.4",
+    "ext-mbstring": "^7.4",
+    "ext-imagick": "^3.4",
+    "ext-gd": "^7.4",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.9",
+    "wp-cli/wp-cli-bundle": "^2.4",
+    "wpackagist-plugin/limit-login-attempts-reloaded": "^2.17.1",
+    "wpackagist-plugin/sucuri-scanner": "^1.8.24",
+    "wpackagist-theme/twentytwenty": "^1.6",
+    "wpackagist-plugin/disable-xml-rpc": "^1.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5.6",
+    "roave/security-advisories": "dev-master",
+    "friendsofphp/php-cs-fixer": "^2.16"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin",
+        "wpackagist-plugin/limit-login-attempts-reloaded",
+        "wpackagist-plugin/sucuri-scanner",
+        "wpackagist-plugin/disable-xml-rpc"
+      ],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/wp"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
     ],
-    "require": {}
+    "lint": "php-cs-fixer fix -v --dry-run --using-cache=no",
+    "format": "php-cs-fixer fix"
+  }
 }

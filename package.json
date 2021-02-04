@@ -1,7 +1,6 @@
 {
   "name": "base-theme",
   "version": "1.0.0",
-  "main": "js/index.js",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -47,12 +46,16 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "prestart": "rimraf assets/dist",
-    "start": "cd assets && webpack --watch --mode development",
-    "prebuild": "rimraf assets/dist",
-    "build": "cd assets && webpack --mode production",
-    "lint:js": "eslint assets/js/**",
-    "lint:css": "stylelint assets/scss",
+    "prestart": "rimraf web/app/themes/custom/assets/dist",
+    "start": "cd web/app/themes/custom/assets && webpack --watch --mode development",
+    "prebuild": "rimraf web/app/themes/custom/assets/dist",
+    "build": "cd web/app/themes/custom/assets && webpack --mode production",
+    "lint:js": "eslint web/app/themes/custom/assets/js/**",
+    "lint:css": "stylelint web/app/themes/custom/assets/scss",
     "lint": "npm run lint:js && npm run lint:css"
+  },
+  "engines": {
+    "node": "^10",
+    "npm ": "^6"
   }
 }

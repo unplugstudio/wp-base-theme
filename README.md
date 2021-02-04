@@ -1,13 +1,18 @@
 # Base WordPress theme
 
-## Required plugins
+## Import concepts
 
-Your WordPress site must have [Advanced Custom Field Pro](https://www.advancedcustomfields.com/pro/) installed before using this theme. Ask the lead developer for the activation key.
+- [WP CLI `dotenv` command](https://github.com/aaemnnosttv/wp-cli-dotenv-command)
+- [Bedrock](https://roots.io/docs/bedrock/master/installation/).
 
-## Installing project requirements
+## Quickstart
 
 ```bash
+# Generate configuration and secrets
+wp dotenv init --template=.env.example --with-salts --interactive
+# Frontend requirements
 npm install
+# Backend requirements
 composer install
 ```
 

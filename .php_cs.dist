@@ -2,8 +2,13 @@
 
 $finder = PhpCsFixer\Finder::create()
   ->in(__DIR__)
+  ->exclude('wp')
+  ->exclude('app/plugins')
+  ->exclude('app/mu-plugins')
+  ->exclude('app/uploads')
   ->exclude('assets')
   ->exclude('node_modules')
+  ->exclude('twentytwenty')
 ;
 
 return PhpCsFixer\Config::create()
