@@ -14,8 +14,9 @@ wp dotenv init --template=.env.example --with-salts --interactive
 npm install
 # Backend requirements
 composer install
+# Switching to the right node version (first install NVM)
+nvm use
 ```
-
 ## Development mode
 
 In development mode Webpack will compile your SCSS (with autoprefixer) and JS (ES6) files and start a Browsersync server continually watching your changes. Files will also be written to `assets/dist`. The entry points are `assets/js/index.js` and `assets/scss/index.scss`.
