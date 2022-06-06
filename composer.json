@@ -7,7 +7,10 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org",
-      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
     },
     {
       "type": "package",
@@ -21,7 +24,7 @@
         },
         "require": {
           "composer/installers": "^1.4",
-          "ffraenz/private-composer-installer": "^4.0"
+          "ffraenz/private-composer-installer": "^5.0"
         }
       }
     }
@@ -35,6 +38,7 @@
     "roots/wordpress": "^5.6",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
+    "wpackagist-theme/twentytwentytwo": "^1.2",
     "ext-exif": "^7.4",
     "ext-mbstring": "^7.4",
     "ext-imagick": "^3.4",
@@ -54,20 +58,33 @@
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true,
+      "ffraenz/private-composer-installer": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "extra": {
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": [
-        "type:wordpress-muplugin", "wpackagist-plugin/limit-login-attempts-reloaded",
-        "type:wordpress-muplugin", "wpackagist-plugin/sucuri-scanner",
-        "type:wordpress-muplugin", "wpackagist-plugin/disable-xml-rpc",
-        "type:wordpress-muplugin", "wpackagist-plugin/wp-mail-smtp"
+        "type:wordpress-muplugin",
+        "wpackagist-plugin/limit-login-attempts-reloaded",
+        "type:wordpress-muplugin",
+        "wpackagist-plugin/sucuri-scanner",
+        "type:wordpress-muplugin",
+        "wpackagist-plugin/disable-xml-rpc",
+        "type:wordpress-muplugin",
+        "wpackagist-plugin/wp-mail-smtp"
       ],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
     },
     "wordpress-install-dir": "web/wp"
   },
