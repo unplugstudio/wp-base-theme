@@ -49,6 +49,7 @@
   "scripts": {
     "prestart": "rimraf web/app/themes/custom/assets/dist",
     "start": "cd web/app/themes/custom/assets && webpack --watch --mode development",
+    "dev": "npm start -- --env.proxy",
     "prebuild": "rimraf web/app/themes/custom/assets/dist",
     "build": "cd web/app/themes/custom/assets && webpack --mode production",
     "lint:js": "eslint web/app/themes/custom/assets/js/**",
