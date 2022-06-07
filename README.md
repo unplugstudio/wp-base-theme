@@ -8,14 +8,14 @@
 ## Quickstart
 
 ```bash
+# Switching to the right node version (first install NVM)
+nvm use
 # Generate configuration and secrets
 wp dotenv init --template=.env.example --with-salts --interactive
 # Frontend requirements
 npm install
 # Backend requirements
 composer install
-# Switching to the right node version (first install NVM)
-nvm use
 ```
 ## Development mode
 
