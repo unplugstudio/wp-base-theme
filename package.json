@@ -50,11 +50,13 @@
     "prestart": "rimraf web/app/themes/custom/assets/dist",
     "start": "cd web/app/themes/custom/assets && webpack --watch --mode development",
     "dev": "npm start -- --env.proxy",
+    "dev:full": "npm run prestart && npm run dev",
     "prebuild": "rimraf web/app/themes/custom/assets/dist",
     "build": "cd web/app/themes/custom/assets && webpack --mode production",
+    "build:full": "npm run prebuild && npm run build",
     "lint:js": "eslint web/app/themes/custom/assets/js/**",
     "lint:css": "stylelint web/app/themes/custom/assets/scss",
-    "lint": "npm run lint:js && npm run lint:css"
+    "lint:full": "npm run lint:js && npm run lint:css"
   },
   "engines": {
     "node": "^10",

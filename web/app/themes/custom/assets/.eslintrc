@@ -2,5 +2,13 @@
   "extends": "prettier-standard",
   "env": {
     "browser": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
