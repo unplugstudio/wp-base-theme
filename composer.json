@@ -23,7 +23,7 @@
           "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t={%VERSION}"
         },
         "require": {
-          "composer/installers": "^1.4",
+          "composer/installers": "^2.1",
           "ffraenz/private-composer-installer": "^5.0"
         }
       }
@@ -31,13 +31,12 @@
   ],
   "require": {
     "php": "^7.4",
-    "composer/installers": "^1.8",
-    "vlucas/phpdotenv": "^4.1.8",
-    "oscarotero/env": "^2.1",
+    "composer/installers": "^2.1",
+    "vlucas/phpdotenv": "^5",
     "roots/bedrock-autoloader": "^1.0",
     "roots/wordpress": "^6",
     "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.0.0",
+    "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwentytwo": "^1.2",
     "ext-exif": "^7.4",
     "ext-mbstring": "^7.4",
