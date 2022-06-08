@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a353ac376c25b7d1b9d0c89ab93a76b8",
+    "content-hash": "c0aef29c9e7dea41e4de721d9a684e02",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -5304,6 +5304,60 @@
             "time": "2022-01-10T18:37:52+00:00"
         },
         {
+            "name": "wpackagist-plugin/accessibility-checker",
+            "version": "1.2.11",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/accessibility-checker/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/accessibility-checker.zip?timestamp=1654102637"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/accessibility-checker/"
+        },
+        {
+            "name": "wpackagist-plugin/broken-link-checker",
+            "version": "1.11.16",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/broken-link-checker/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/broken-link-checker.zip?timestamp=1632795432"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/broken-link-checker/"
+        },
+        {
+            "name": "wpackagist-plugin/cookie-law-info",
+            "version": "2.1.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cookie-law-info/",
+                "reference": "tags/2.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cookie-law-info.2.1.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cookie-law-info/"
+        },
+        {
             "name": "wpackagist-plugin/disable-xml-rpc",
             "version": "1.0.1",
             "source": {
@@ -5320,6 +5374,60 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/disable-xml-rpc/"
+        },
+        {
+            "name": "wpackagist-plugin/fluent-smtp",
+            "version": "2.1.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/fluent-smtp/",
+                "reference": "tags/2.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/fluent-smtp.2.1.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/fluent-smtp/"
+        },
+        {
+            "name": "wpackagist-plugin/fluentform",
+            "version": "4.3.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/fluentform/",
+                "reference": "tags/4.3.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/fluentform.4.3.8.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/fluentform/"
+        },
+        {
+            "name": "wpackagist-plugin/google-analytics-for-wordpress",
+            "version": "8.5.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/google-analytics-for-wordpress/",
+                "reference": "tags/8.5.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/google-analytics-for-wordpress.8.5.3.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/google-analytics-for-wordpress/"
         },
         {
             "name": "wpackagist-plugin/limit-login-attempts-reloaded",
@@ -5340,6 +5448,42 @@
             "homepage": "https://wordpress.org/plugins/limit-login-attempts-reloaded/"
         },
         {
+            "name": "wpackagist-plugin/p3-profiler",
+            "version": "1.5.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/p3-profiler/",
+                "reference": "tags/1.5.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/p3-profiler.1.5.4.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/p3-profiler/"
+        },
+        {
+            "name": "wpackagist-plugin/powr-pack",
+            "version": "2.1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/powr-pack/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/powr-pack.zip?timestamp=1646934367"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/powr-pack/"
+        },
+        {
             "name": "wpackagist-plugin/sucuri-scanner",
             "version": "1.8.31",
             "source": {
@@ -5356,6 +5500,42 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/sucuri-scanner/"
+        },
+        {
+            "name": "wpackagist-plugin/webp-express",
+            "version": "0.25.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/webp-express/",
+                "reference": "tags/0.25.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/webp-express.0.25.5.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/webp-express/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "19.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/19.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
             "name": "wpackagist-plugin/wp-mail-smtp",
