@@ -1,5 +1,4 @@
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
-const globImporter = require("node-sass-glob-importer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const { resolve } = require("path");
@@ -54,7 +53,6 @@ module.exports = (env, argv) => {
                 ...options,
                 // Prefer dart sass
                 implementation: require("sass"),
-                sassOptions: { importer: globImporter() },
               },
             },
           ],
