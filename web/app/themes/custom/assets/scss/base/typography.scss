@@ -136,7 +136,7 @@ blockquote {
   border-left: solid (get-size(border-width) * 4) get-palette(border);
   font-style: italic;
   margin: 0 0 get-size(element-margin) 0;
-  padding: (get-size(element-margin) / 4) 0 (get-size(element-margin) / 4) get-size(element-margin);
+  padding: (get-size(element-margin) * 0.25) 0 (get-size(element-margin) * 0.25) get-size(element-margin);
 }
 
 code {

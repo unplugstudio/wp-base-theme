@@ -6,6 +6,8 @@
 /// Create a responsive container element.
 /// @param {number} $gutter [get-size(gutter, normal)] - Lateral padding around the container
 /// @param {number} $max-width [get-size(container)] - Max container width
+@use "sass:math";
+
 @mixin grid-container($padding: get-size(gutter, normal), $max-width: get-size(container)) {
   margin-left: auto;
   margin-right: auto;
@@ -42,8 +44,8 @@
 /// @param {number} $width - Number of columns, or size in `em`, `px`, `pt`, etc.
 @mixin grid-col-width($width) {
   @if unitless($width) {
-    flex: 0 0 percentage($width / get-misc(columns));
-    max-width: percentage($width / get-misc(columns));
+    flex: 0 0 percentage(math.div($width, get-misc(columns)));
+    max-width: percentage(math.div($width, get-misc(columns)));
   }
 
   @else {
