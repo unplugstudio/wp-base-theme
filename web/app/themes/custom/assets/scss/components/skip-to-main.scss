@@ -1,8 +1,8 @@
 /* A simple link to skip to the main page content.
    Visible only when tabbing with the keyboard */
-
+@use "../abstracts/functions.scss";
 .skip-to-main {
-  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: rect(1px, 1px, 1px, 1px);
   height: 1px;
   left: 0;
   margin: 0;
@@ -13,7 +13,7 @@
   width: 1px;
 
   &:focus {
-    background-color: get-palette(bg);
+    background-color: functions.get-palette(bg);
     clip: auto;
     height: auto;
     padding: 1rem;

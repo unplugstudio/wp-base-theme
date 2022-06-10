@@ -1,13 +1,19 @@
+@use "sass:map";
+@use "../abstracts/mixins.scss";
+@use "../abstracts/functions.scss";
+@use "~sass-mq/mq" as mq;
+@use "../abstracts/vars";
+
 .section-wrapper {
-  @include padding(3rem, 0);
+  @include mixins.padding(3rem, 0);
 
   &.-alt {
-    background-color: get-palette(bg-alt);
+    background-color: functions.get-palette(bg-alt);
   }
 
   &.-slim {
-    @include mq($from: md) {
-      @include padding(2rem, 0);
+    @include mq.mq($from: map.get(vars.$mq-breakpoints, md)) {
+      @include mixins.padding(2rem, 0);
     }
   }
 
@@ -29,19 +35,19 @@
     }
   }
 
-  @include mq($from: md) {
-    @include padding(3.5rem, 0);
+  @include mq.mq($from: map.get(vars.$mq-breakpoints, md)) {
+    @include mixins.padding(3.5rem, 0);
   }
 
-  @include mq($from: lg) {
-    @include padding(5rem, 0);
+  @include mq.mq($from: map.get(vars.$mq-breakpoints, lg)) {
+    @include mixins.padding(5rem, 0);
   }
 
   // Create all color variations
-  @each $i in map-keys(get-palette(highlight)) {
+  @each $i in map.keys(functions.get-palette(highlight)) {
     // stylelint-disable-next-line rscss/class-format
     &.-style-#{$i} {
-      background-color: get-palette(highlight, $i);
+      background-color: functions.get-palette(highlight, $i);
       color: #fff;
     }
   }

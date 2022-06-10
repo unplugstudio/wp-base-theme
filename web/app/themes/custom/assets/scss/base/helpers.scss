@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "../abstracts/functions.scss";
+@use "../abstracts/vars";
+@use "~sass-mq/mq" as mq;
 /* stylelint-disable rscss/class-format, rscss/no-descendant-combinator */
 
 /* Disable some stylelint rules because:
@@ -43,7 +47,7 @@
 }
 
 ._text-muted {
-  color: get-palette(fg-light) !important;
+  color: functions.get-palette(fg-light) !important;
 }
 
 ._text-color-inherit,
@@ -56,9 +60,9 @@
 }
 
 // Colored text
-@each $i in map-keys(get-palette(highlight)) {
+@each $i in map.keys(functions.get-palette(highlight)) {
   ._text-style-#{$i} {
-    color: get-palette(highlight, $i) !important;
+    color: functions.get-palette(highlight, $i) !important;
   }
 }
 
@@ -73,48 +77,69 @@
  */
 
 $sizes: (
-  (0,		(get-size(element-margin) * 0)),
-  (half,	(get-size(element-margin) * 0.5)),
-  (1,		(get-size(element-margin) * 1)),
-  (2,		(get-size(element-margin) * 2)),
-  (3,		(get-size(element-margin) * 3)),
-  (4,		(get-size(element-margin) * 4))
+  (0, (functions.get-size(element-margin) * 0)),
+  (half, (functions.get-size(element-margin) * 0.5)),
+  (1, (functions.get-size(element-margin) * 1)),
+  (2, (functions.get-size(element-margin) * 2)),
+  (3, (functions.get-size(element-margin) * 3)),
+  (4, (functions.get-size(element-margin) * 4))
 );
 
-$directions: (
-  (b, bottom),
-  (l, left),
-  (r, right),
-  (t, top)
-);
+$directions: ((b, bottom), (l, left), (r, right), (t, top));
 
 @each $dir-key, $dir in $directions {
-  ._b#{$dir-key} { border-#{$dir}: solid get-size(border-width) get-palette(border); }
+  ._b#{$dir-key} {
+    border-#{$dir}: solid
+      functions.get-size(border-width)
+      functions.get-palette(border);
+  }
 
   @each $size-key, $size in $sizes {
-    ._p#{$dir-key}-#{$size-key} { padding-#{$dir}: $size !important; }
-    ._m#{$dir-key}-#{$size-key} { margin-#{$dir}: $size !important; }
+    ._p#{$dir-key}-#{$size-key} {
+      padding-#{$dir}: $size !important;
+    }
+    ._m#{$dir-key}-#{$size-key} {
+      margin-#{$dir}: $size !important;
+    }
   }
 }
 
 // Responsive floats
-@each $size in map-keys($mq-breakpoints) {
-  @include mq($from: $size) {
+// TODO: Test if this replaces succesfully the old version
+@each $breakpointName, $breakpointValue in vars.$mq-breakpoints {
+  @include mq.mq($from: $breakpointValue) {
     @each $value in (none, left, right) {
-      ._float-#{$value}-#{$size} {
+      ._float-#{$value}-#{$breakpointValue} {
         float: $value !important;
       }
     }
-  }
-}
-
-// Responsive display helpers
-@each $size in map-keys($mq-breakpoints) {
-  @include mq($from: $size) {
-    @each $value in (none, block, flex) {
-      ._display-#{$value}-#{$size} {
-        display: $value !important;
+    @each $val in (none, block, flex) {
+      ._display-#{$val}-#{$breakpointValue} {
+        display: $val !important;
       }
     }
   }
 }
+// OLD CODE VERSION
+// @each $size in map.keys(vars.$mq-breakpoints) {
+//   @include mq.mq($from: $size) {
+//     @each $value in (none, left, right) {
+//       ._float-#{$value}-#{$size} {
+//         float: $value !important;
+//       }
+//     }
+//   }
+// }
+
+
+// Responsive display helpers
+
+// @each $size in map.keys(vars.$mq-breakpoints) {
+//   @include mq($from: $size) {
+//     @each $value in (none, block, flex) {
+//       ._display-#{$value}-#{$size} {
+//         display: $value !important;
+//       }
+//     }
+//   }
+// }

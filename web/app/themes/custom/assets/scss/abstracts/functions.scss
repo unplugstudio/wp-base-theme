@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "sass:meta";
+@use "./vars";
+
 /// Map deep get
 /// @author Hugo Giraudel
 /// @param {Map} $map - Map
@@ -10,15 +14,15 @@
   @each $key in $keys {
 
     // If current $map is not a map, assume we finished and return
-    @if type-of($map) != 'map' {
+    @if meta.type-of($map) != 'map' {
       @return $map;
     }
 
     // Else, make the next $key the new $map
-    $map: map-get($map, $key);
+    $map: map.get($map, $key);
 
     // If the new $map is null, maybe the $key is mispelled or missing
-    @if type-of($map) == 'null' {
+    @if meta.type-of($map) == 'null' {
       @warn 'Nested key '#{$keys}' returned null. Does it exist?';
     }
   }
@@ -31,33 +35,33 @@
 /// @param {string} $keys Key(s).
 /// @return {string} Value.
 @function get-duration($keys...) {
-  @return map-deep-get($duration, $keys...);
+  @return map-deep-get(vars.$duration, $keys...);
 }
 
 /// Gets a font value.
 /// @param {string} $keys Key(s).
 /// @return {string} Value.
 @function get-font($keys...) {
-  @return map-deep-get($font, $keys...);
+  @return map-deep-get(vars.$font, $keys...);
 }
 
 /// Gets a misc value.
 /// @param {string} $keys Key(s).
 /// @return {string} Value.
 @function get-misc($keys...) {
-  @return map-deep-get($misc, $keys...);
+  @return map-deep-get(vars.$misc, $keys...);
 }
 
 /// Gets a palette value.
 /// @param {string} $keys Key(s).
 /// @return {string} Value.
 @function get-palette($keys...) {
-  @return map-deep-get($palette, $keys...);
+  @return map-deep-get(vars.$palette, $keys...);
 }
 
 /// Gets a size value.
 /// @param {string} $keys Key(s).
 /// @return {string} Value.
 @function get-size($keys...) {
-  @return map-deep-get($size, $keys...);
+  @return map-deep-get(vars.$size, $keys...);
 }

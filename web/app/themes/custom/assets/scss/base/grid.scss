@@ -1,3 +1,4 @@
+@use "sass:map";
 /* stylelint-disable rscss/class-format */
 
 /* Disable RSCSS checks to comply with Bootstrap's conventions */
@@ -31,7 +32,7 @@
 }
 
 // Make all columns in all viewports
-@each $breakpoint in map-keys($mq-breakpoints) {
+@each $breakpoint in map.keys($mq-breakpoints) {
   @for $i from 1 through get-misc(columns) {
     .col-#{$breakpoint}-#{$i} {
       @extend %base-col;

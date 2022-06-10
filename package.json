@@ -6,7 +6,7 @@
   "dependencies": {
     "focus-visible": "^5.2.0",
     "node-reset-scss": "^1.0.1",
-    "sass-mq": "^5.0.0"
+    "sass-mq": "^6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",

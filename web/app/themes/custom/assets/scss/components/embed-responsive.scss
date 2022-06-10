@@ -49,7 +49,7 @@ $ratios: (
     &.-w#{$w}h#{$h},
     &.embed-responsive-#{$w}by#{$h} {
       &::before {
-        padding-top: percentage(math.div($h, $w));
+        padding-top: math.percentage(math.div($h, $w));
       }
     }
   }
