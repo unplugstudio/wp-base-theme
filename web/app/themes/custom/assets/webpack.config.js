@@ -1,13 +1,13 @@
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { resolve } = require("path");
 const WebpackAssetsManifestPlugin = require("webpack-assets-manifest");
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === "development";
   const options = { sourceMap: isDev };
-
   const devPlugins = [
     new BrowserSyncPlugin({
       // Set your desired proxy when calling webpack
@@ -16,10 +16,7 @@ module.exports = (env, argv) => {
       open: false,
     }),
   ];
-  const prodPlugins = [
-    new WebpackAssetsManifestPlugin(),
-    new OptimizeCssAssetsPlugin(),
-  ];
+  const prodPlugins = [new WebpackAssetsManifestPlugin()];
   const plugins = [
     new MiniCssExtractPlugin({
       filename: isDev ? "[name].css" : "[name].[chunkhash].css",
@@ -44,7 +41,7 @@ module.exports = (env, argv) => {
         {
           test: /\.s?css$/,
           use: [
-            { loader: MiniCssExtractPlugin.loader, options },
+            { loader: MiniCssExtractPlugin.loader },
             { loader: "css-loader", options },
             { loader: "postcss-loader", options },
             {
@@ -61,6 +58,13 @@ module.exports = (env, argv) => {
           test: /\.(jpe?g|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$/,
           loader: "file-loader",
         },
+      ],
+    },
+    optimization: {
+      minimizer: [
+        // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+        `...`,
+        new CssMinimizerPlugin(),
       ],
     },
     plugins,
