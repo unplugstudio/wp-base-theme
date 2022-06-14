@@ -27,19 +27,13 @@
   @include grid.grid-container-row;
 }
 
-// Basic styles that all columns should have on all viewports.
-// Created as an extendable to group into a single selector.
-%base-col {
-  @include grid.grid-col-gutter;
-
-  width: 100%; // Start being 100% wide, individual breakponts will clamp the width
-}
-
 // Make all columns in all viewports
 @each $breakpointName, $breakpointValue in vars.$mq-breakpoints {
   @for $i from 1 through functions.get-misc(columns) {
     .col-#{$breakpointName}-#{$i} {
-      @extend %base-col;
+      // Basic styles that all columns should have on all viewports.
+      @include grid.grid-col-gutter;
+      width: 100%; // Start being 100% wide, individual breakponts will clamp the width
 
       @include mq.mq($from: $breakpointValue) {
         @include grid.grid-col-width($i);
