@@ -40,6 +40,7 @@
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-rscss": "^0.4.0",
+    "terser-webpack-plugin": "^5.3.3",
     "webpack": "5.72.1",
     "webpack-assets-manifest": "^5.1.0",
     "webpack-cli": "^4.10"
@@ -54,8 +55,7 @@
     "build:full": "npm run prebuild && npm run build",
     "lint:js": "eslint web/app/themes/custom/assets/js/**",
     "lint:css": "stylelint web/app/themes/custom/assets/scss",
-    "lint:full": "npm run lint:js && npm run lint:css",
-    "webpack:help": "webpack --help"
+    "lint:full": "npm run lint:js && npm run lint:css"
   },
   "engines": {
     "node": "^16",

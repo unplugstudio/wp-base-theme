@@ -1,6 +1,6 @@
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { resolve } = require("path");
 const WebpackAssetsManifestPlugin = require("webpack-assets-manifest");
@@ -65,6 +65,11 @@ module.exports = (env, argv) => {
         // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
         `...`,
         new CssMinimizerPlugin(),
+        new TerserPlugin({
+          // Use multi-process parallel running to improve the build speed
+          // Default number of concurrent runs: os.cpus().length - 1
+          parallel: true,
+        }),
       ],
     },
     plugins,
