@@ -27,12 +27,20 @@ Assuming your local WordPress installation is served at http://example.test, you
 
 ```bash
 # Short version
-npm run dev example.test
+npm run dev proxy="example.test"
 # Long version
-npm start -- --env.proxy example.test
+npm start -- --env proxy="example.test"
 ```
 
 Now the proxied site with auto-reload will be available at http://localhost:3000. The regular site without auto-reload will still be available at the original URL.
+
+You can also modify the dev script located in package.json with your local url to save some time.
+
+```json
+"scripts": {
+  "dev": "npm run start -- --env proxy='example.test'"
+}
+```
 
 ## Production mode
 
@@ -65,7 +73,7 @@ composer run-script lint
 
 ```bash
 # deletes previous assets/dist folder and runs npm run dev
-npm run dev:full <yourWebsite.test>
+npm run dev:full proxy="<yourWebsite.test>"
 # deletes previous assets/dist folder and runs npm run build
 npm run build:full
 # Lint js and css
