@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "flickity": "^3.0.0",
     "focus-visible": "^5.2.0",
     "node-reset-scss": "^1.0.1",
     "sass-mq": "^6.0"
