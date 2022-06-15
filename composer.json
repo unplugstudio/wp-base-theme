@@ -50,8 +50,8 @@
     "wpackagist-theme/twentytwenty": "^2",
     "wpackagist-plugin/disable-xml-rpc": "^1.0",
     "wpackagist-plugin/wp-mail-smtp": "^3.4",
-    "wpackagist-plugin/google-analytics-for-wordpress": "^8.5",
-    "wpackagist-plugin/wordpress-seo": "^19.0",
+    "wpackagist-plugin/google-analytics-for-wordpress": "^8.6",
+    "wpackagist-plugin/wordpress-seo": "^19.1",
     "wpackagist-plugin/powr-pack": "^2.1",
     "wpackagist-plugin/fluentform": "^4.3",
     "wpackagist-plugin/fluent-smtp": "^2.1",
@@ -62,8 +62,8 @@
     "wpackagist-plugin/webp-express": "^0.25.5"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.6.2",
-    "roave/security-advisories": "dev-master",
+    "squizlabs/php_codesniffer": "^3.7.0",
+    "roave/security-advisories": "dev-latest",
     "friendsofphp/php-cs-fixer": "^2.16"
   },
   "config": {
