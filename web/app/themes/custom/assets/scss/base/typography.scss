@@ -3,6 +3,7 @@
 @use "~sass-mq/mq" as mq;
 @use "../abstracts/vars.scss";
 @use "sass:map";
+
 body {
   background-color: functions.get-palette(bg);
   color: functions.get-palette(fg);

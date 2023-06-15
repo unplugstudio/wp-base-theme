@@ -1,4 +1,5 @@
 @use "../abstracts/functions.scss";
+
 ol {
   list-style: decimal;
   margin: 0 0 functions.get-size(element-margin) 0;

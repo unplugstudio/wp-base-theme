@@ -4,6 +4,7 @@
     "stylelint-rscss/config"
   ],
   "rules": {
+    "string-quotes": null,
     "max-nesting-depth": [
       3,
       {

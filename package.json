@@ -56,7 +56,7 @@
     "build:full": "npm run prebuild && npm run build",
     "lint:js": "eslint web/app/themes/custom/assets/js/**",
     "lint:css": "stylelint web/app/themes/custom/assets/scss",
-    "lint:full": "npm run lint:js && npm run lint:css"
+    "lint": "npm run lint:js && npm run lint:css"
   },
   "engines": {
     "node": "^16",

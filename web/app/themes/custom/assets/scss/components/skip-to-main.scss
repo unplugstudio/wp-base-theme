@@ -1,6 +1,7 @@
 /* A simple link to skip to the main page content.
    Visible only when tabbing with the keyboard */
 @use "../abstracts/functions.scss";
+
 .skip-to-main {
   clip-path: rect(1px, 1px, 1px, 1px);
   height: 1px;
