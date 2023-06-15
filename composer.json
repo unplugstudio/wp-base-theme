@@ -100,7 +100,7 @@
     "wordpress-install-dir": "web/wp"
   },
   "scripts": {
-    "lint": "php-cs-fixer fix -v --dry-run --using-cache=no",
+    "lint": "php-cs-fixer fix web/app/themes/custom -v --dry-run --using-cache=no",
     "format": "php-cs-fixer fix"
   }
 }

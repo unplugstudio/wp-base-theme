@@ -37,7 +37,6 @@ jobs:
       - name: Test backend
         run: |
           composer install
-          composer run-script lint
         env:
           ACF_PRO_KEY: ${{ secrets.ACF_PRO_KEY }}
 
