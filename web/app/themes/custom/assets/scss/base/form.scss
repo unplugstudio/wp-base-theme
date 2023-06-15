@@ -1,11 +1,12 @@
 /* stylelint-disable rscss/class-format, rscss/no-descendant-combinator */
+@use "../abstracts/functions.scss";
 
 form {
-  margin: 0 0 get-size(element-margin) 0;
+  margin: 0 0 functions.get-size(element-margin) 0;
 }
 
 .form-group {
-  margin-bottom: get-size(element-margin);
+  margin-bottom: functions.get-size(element-margin);
 }
 
 .input-group {
@@ -17,41 +18,41 @@ form {
 }
 
 .help-block {
-  color: get-palette(fg-light);
+  color: functions.get-palette(fg-light);
   font-size: 0.95em;
   font-style: italic;
   margin-bottom: 0;
   margin-top: 0.5em;
 
   .has-error & {
-    color: get-palette(state, error);
+    color: functions.get-palette(state, error);
   }
 }
 
 label {
   display: block;
-  margin: 0 0 (get-size(element-margin) * 0.25) 0;
+  margin: 0 0 (functions.get-size(element-margin) * 0.25) 0;
 
   &[for] {
     cursor: pointer;
   }
 
   .has-error & {
-    color: get-palette(state, error);
+    color: functions.get-palette(state, error);
   }
 }
 
-[type='text'],
-[type='search'],
-[type='password'],
-[type='email'],
-[type='date'],
-[type='number'],
+[type="text"],
+[type="search"],
+[type="password"],
+[type="email"],
+[type="date"],
+[type="number"],
 select,
 textarea {
-  background-color: get-palette(bg);
-  border: solid get-size(border-width) get-palette(border);
-  border-radius: get-size(border-radius);
+  background-color: functions.get-palette(bg);
+  border: solid functions.get-size(border-width) functions.get-palette(border);
+  border-radius: functions.get-size(border-radius);
   color: inherit;
   display: block;
   outline: 0;
@@ -73,29 +74,29 @@ textarea {
   }
 
   &:focus {
-    border-color: get-palette(highlight, 1);
-    box-shadow: 0 0 0 get-size(border-width) get-palette(highlight, 1);
+    border-color: functions.get-palette(highlight, 1);
+    box-shadow: 0 0 0 functions.get-size(border-width) functions.get-palette(highlight, 1);
     outline: none !important;
   }
 
   .has-error & {
-    border-color: rgba(get-palette(state, error), 0.75);
+    border-color: rgba(functions.get-palette(state, error), 0.75);
 
     &:focus {
-      border-color: get-palette(state, error);
-      box-shadow: 0 0 0 get-size(border-width) get-palette(state, error);
+      border-color: functions.get-palette(state, error);
+      box-shadow: 0 0 0 functions.get-size(border-width) functions.get-palette(state, error);
     }
   }
 }
 
-[type='text'],
-[type='search'],
-[type='password'],
-[type='email'],
-[type='date'],
-[type='number'],
+[type="text"],
+[type="search"],
+[type="password"],
+[type="email"],
+[type="date"],
+[type="number"],
 select {
-  height: get-size(element-height);
+  height: functions.get-size(element-height);
 }
 
 textarea {
@@ -103,6 +104,6 @@ textarea {
 }
 
 ::placeholder {
-  color: get-palette(fg-light);
+  color: functions.get-palette(fg-light);
   opacity: 1;
 }

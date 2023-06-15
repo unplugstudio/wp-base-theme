@@ -1,4 +1,5 @@
 /* stylelint-disable rscss/no-descendant-combinator, max-nesting-depth */
+@use "../abstracts/functions.scss";
 
 .table-wrapper {
   max-width: 100%;
@@ -6,20 +7,20 @@
   overflow-x: auto;
 
   table {
-    margin: 0 0 get-size(element-margin) 0;
+    margin: 0 0 functions.get-size(element-margin) 0;
     width: 100%;
   }
 
   td,
   th {
-    border-color: get-palette(border);
+    border-color: functions.get-palette(border);
     border-style: solid;
     border-width: 0;
   }
 
   th {
     font-size: 0.9rem;
-    font-weight: get-font(weight-bold);
+    font-weight: functions.get-font(weight-bold);
     text-align: left;
     text-transform: uppercase;
   }
@@ -27,7 +28,7 @@
   &.-bordered-horizontal {
     td,
     th {
-      border-width: 0 0 get-size(border-width);
+      border-width: 0 0 functions.get-size(border-width);
       padding: 0.75rem;
     }
 
@@ -49,13 +50,13 @@
     border-collapse: separate;
 
     table {
-      border-left: solid get-size(border-width) get-palette(border);
-      border-top: solid get-size(border-width) get-palette(border);
+      border-left: solid functions.get-size(border-width) functions.get-palette(border);
+      border-top: solid functions.get-size(border-width) functions.get-palette(border);
     }
 
     td,
     th {
-      border-width: 0 get-size(border-width) get-size(border-width);
+      border-width: 0 functions.get-size(border-width) functions.get-size(border-width);
       padding: 0.75rem;
     }
   }
