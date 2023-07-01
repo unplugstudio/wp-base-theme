@@ -12,7 +12,7 @@
 function get_from_manifest($path)
 {
   $base_uri = get_template_directory_uri() . '/assets/dist/';
-  $file = get_template_directory() . '/assets/dist/manifest.json';
+  $file = get_template_directory() . '/assets/dist/assets-manifest.json';
   $manifest = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
   if (array_key_exists($path, $manifest)) {
