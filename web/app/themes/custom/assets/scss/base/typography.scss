@@ -1,6 +1,12 @@
+@use "../abstracts/functions";
+// @import '~sass-mq/mq';
+@use "~sass-mq/mq" as mq;
+@use "../abstracts/vars.scss";
+@use "sass:map";
+
 body {
-  background-color: get-palette(bg);
-  color: get-palette(fg);
+  background-color: functions.get-palette(bg);
+  color: functions.get-palette(fg);
 }
 
 html,
@@ -9,29 +15,30 @@ input,
 select,
 textarea,
 button {
-  font-family: get-font(family);
+  font-family: functions.get-font(family);
   font-size: 14.5px;
-  font-weight: get-font(weight);
+  font-weight: functions.get-font(weight);
   line-height: 1.6;
 }
 
 a {
-  color: get-palette(highlight, 1);
+  color: functions.get-palette(highlight, 1);
   cursor: pointer;
   text-decoration: none;
-  transition: color get-duration(medium), border-color get-duration(medium);
+  transition: color functions.get-duration(medium),
+    border-color functions.get-duration(medium);
 
   &:active,
   &:focus,
   &:hover {
-    color: get-palette(highlight, 1);
+    color: functions.get-palette(highlight, 1);
     text-decoration: underline;
   }
 }
 
 strong,
 b {
-  font-weight: get-font(weight-bold);
+  font-weight: functions.get-font(weight-bold);
 }
 
 em,
@@ -40,17 +47,28 @@ i {
 }
 
 p {
-  margin: 0 0 get-size(element-margin) 0;
+  margin: 0 0 functions.get-size(element-margin) 0;
 }
 
 // stylelint-disable-next-line
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin: 0 0 (get-size(element-margin) * 0.5) 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin: 0 0 (functions.get-size(element-margin) * 0.5) 0;
 
   ul + &,
   ol + &,
   p + & {
-    margin-top: (get-size(element-margin) * 1.2);
+    margin-top: (functions.get-size(element-margin) * 1.2);
   }
 
   > a {
@@ -58,66 +76,68 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   }
 
   &.-underlined {
-    border-bottom: solid get-size(border-width) get-palette(border);
+    border-bottom: solid functions.get-size(border-width)
+      functions.get-palette(border);
     margin-bottom: 1rem;
     padding-bottom: 1rem;
   }
 
   &.-underlined-alt {
-    border-bottom: solid get-size(border-width) get-palette(highlight, 1);
+    border-bottom: solid functions.get-size(border-width)
+      functions.get-palette(highlight, 1);
     padding-bottom: 0.5rem;
   }
 }
 
 h1,
 .h1 {
-  font-family: get-font(family-heading);
+  font-family: functions.get-font(family-heading);
   font-size: 3rem;
-  font-weight: get-font(weight);
+  font-weight: functions.get-font(weight);
   line-height: 1.15;
 
-  @include mq($from: md) {
+  @include mq.mq($from: map.get(vars.$mq-breakpoints, "md")) {
     font-size: 3.6rem;
   }
 }
 
 h2,
 .h2 {
-  font-family: get-font(family-heading);
+  font-family: functions.get-font(family-heading);
   font-size: 2.86rem;
-  font-weight: get-font(weight-light);
+  font-weight: functions.get-font(weight-light);
   line-height: 1.4;
 }
 
 h3,
 .h3 {
-  font-family: get-font(family);
+  font-family: functions.get-font(family);
   font-size: 2rem;
-  font-weight: get-font(weight-light);
+  font-weight: functions.get-font(weight-light);
   line-height: 1.27;
 }
 
 h4,
 .h4 {
-  font-family: get-font(family);
+  font-family: functions.get-font(family);
   font-size: 1.6rem;
-  font-weight: get-font(weight);
+  font-weight: functions.get-font(weight);
   line-height: 1.33;
 }
 
 h5,
 .h5 {
-  font-family: get-font(family);
+  font-family: functions.get-font(family);
   font-size: 1.13rem;
-  font-weight: get-font(weight-bold);
+  font-weight: functions.get-font(weight-bold);
   line-height: 1.53;
 }
 
 h6,
 .h6 {
-  font-family: get-font(family);
+  font-family: functions.get-font(family);
   font-size: 0.85rem;
-  font-weight: get-font(weight);
+  font-weight: functions.get-font(weight);
 }
 
 sub {
@@ -133,26 +153,29 @@ sup {
 }
 
 blockquote {
-  border-left: solid (get-size(border-width) * 4) get-palette(border);
+  border-left: solid (functions.get-size(border-width) * 4)
+    functions.get-palette(border);
   font-style: italic;
-  margin: 0 0 get-size(element-margin) 0;
-  padding: (get-size(element-margin) / 4) 0 (get-size(element-margin) / 4) get-size(element-margin);
+  margin: 0 0 functions.get-size(element-margin) 0;
+  padding: (functions.get-size(element-margin) * 0.25) 0
+    (functions.get-size(element-margin) * 0.25)
+    functions.get-size(element-margin);
 }
 
 code {
-  background-color: get-palette(border-bg);
-  border: solid get-size(border-width) get-palette(border);
-  border-radius: get-size(border-radius);
-  font-family: get-font(family-fixed);
+  background-color: functions.get-palette(border-bg);
+  border: solid functions.get-size(border-width) functions.get-palette(border);
+  border-radius: functions.get-size(border-radius);
+  font-family: functions.get-font(family-fixed);
   font-size: 0.9em;
   margin: 0 0.25em;
   padding: 0.25em 0.65em;
 }
 
 pre {
-  font-family: get-font(family-fixed);
+  font-family: functions.get-font(family-fixed);
   font-size: 0.9em;
-  margin: 0 0 get-size(element-margin) 0;
+  margin: 0 0 functions.get-size(element-margin) 0;
   -webkit-overflow-scrolling: touch;
 
   > code {
@@ -165,10 +188,11 @@ pre {
 
 hr {
   border: 0;
-  border-bottom: solid get-size(border-width) get-palette(border);
-  margin: get-size(element-margin) 0;
+  border-bottom: solid functions.get-size(border-width)
+    functions.get-palette(border);
+  margin: functions.get-size(element-margin) 0;
 
   &.-major {
-    margin: (get-size(element-margin) * 1.5) 0;
+    margin: (functions.get-size(element-margin) * 1.5) 0;
   }
 }

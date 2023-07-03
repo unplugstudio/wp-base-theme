@@ -1,6 +1,6 @@
 /* stylelint-disable max-nesting-depth */
-
-$spacing: get-size(element-margin) * 0.5;
+@use "../abstracts/functions.scss";
+$spacing: functions.get-size(element-margin) * 0.5;
 
 .list-inline {
   list-style: none;
